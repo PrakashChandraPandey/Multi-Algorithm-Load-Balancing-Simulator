@@ -1,15 +1,30 @@
 #include "ProjectHeaders.h"
 
-int LoadBalancer::weightedRoundRobinUnlocked() {
-    std::vector<int> choices;
-    for (int i = 0; i < static_cast<int>(servers.size()); ++i) {
-        if (!canAcceptUnlocked(i)) continue;
-        int weight = servers[i].weight < 1 ? 1 : servers[i].weight;
-        for (int j = 0; j < weight; ++j) choices.push_back(i);
+int LoadBalancer::weightedRoundRobin() {
+    vector<int> choices;
+
+    for (int i = 0; i < (int)servers.size(); i++) {
+        if (!canAccept(i)) {
+            continue;
+        }
+
+        int weight = servers[i].weight;
+        if (weight < 1) {
+            weight = 1;
+        }
+
+        for (int j = 0; j < weight; j++) {
+            choices.push_back(i);
+        }
     }
-    if (choices.empty()) return -1;
-    weightedPosition %= static_cast<int>(choices.size());
+
+    if (choices.empty()) {
+        return -1;
+    }
+
+    weightedPosition = weightedPosition % (int)choices.size();
     int selected = choices[weightedPosition];
-    weightedPosition = (weightedPosition + 1) % static_cast<int>(choices.size());
+    weightedPosition = (weightedPosition + 1) % (int)choices.size();
+
     return selected;
 }
