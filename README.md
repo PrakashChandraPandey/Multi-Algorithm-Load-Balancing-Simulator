@@ -1,7 +1,7 @@
 Multi Algorithm Load Balancing Simulator
 
 Project Overview
-Load Balancer Visualizer is a terminal-based C++ project that demonstrates how incoming requests can be distributed among multiple servers using different load-balancing algorithms. It also simulates request processing, server failure and recovery, and adding servers during a simulation.
+It is currently a terminal-based C++ project that demonstrates how incoming requests can be distributed among multiple servers using different load-balancing algorithms. It also simulates request processing, server failure and recovery, and adding servers during a simulation.
 
 
 This phase focuses on the backend and terminal-based interaction. A graphical interface can be considered as a future enhancement.
