@@ -20,31 +20,38 @@ Load-Balancing Algorithms
 - Least Connections: Selects an eligible server with the lowest number of active requests/connections as counted by the implementation.
 
 
-Project Modules
+
+## Project Modules
+
 The following list matches the source files in this repository.
-File	Responsibility
-ProjectHeaders.h	Declares the ServerBase, Server, Request, CircularQueue, and LoadBalancer classes and their functions.
-data_structures.h	Defines the C-compatible request data structure and fixed-size circular queue operations.
-Server_Module.cpp	Implements the ServerBase constructor, the derived Server constructor, and server display. ServerBase is implemented here; there is no separate server-base source file.
-Request_Module.cpp	Implements request initialization, processing-time assignment, and conversion between C++ requests and the C request structure.
-Circular_Queue_Module.cpp	Implements the C++ CircularQueue wrapper using the queue functions in data_structures.h.
-Load_Balancer_Core_and_Algorithms.cpp	Implements core load-balancer operations, server lookup and eligibility checks, algorithm selection, waiting-request assignment, initialization, request processing, and pending-request checks.
-Round_Robin_Algorithm.cpp	Implements Round Robin server selection.
-Weighted_Round_Robin_Algorithm.cpp	Implements Weighted Round Robin server selection.
-Least_Connections_Algorithm.cpp	Implements Least Connections server selection.
-Request_Generation_Module.cpp	Generates requests, validates the selected algorithm, places requests in the waiting queue, and starts assignment.
-Server_Display_Module.cpp	Displays the server list and their status.
-Server_Failure_Module.cpp	Marks a server as failed and returns its active requests to the waiting queue when possible.
-Server_Recovery_Module.cpp	Reactivates a failed server and attempts to assign waiting requests.
-Add_Server_Module.cpp	Validates and adds a new server with an ID, capacity, and weight.
-Queue_Display_Module.cpp	Displays active and waiting requests.
+
+| File | Responsibility |
+|---|---|
+| `ProjectHeaders.h` | Declares the ServerBase, Server, Request, CircularQueue, and LoadBalancer classes and their functions. |
+| `data_structures.h` | Defines the C-compatible request data structure and fixed-size circular queue operations. |
+| `Server_Module.cpp` | Implements the ServerBase constructor, derived Server constructor, and server display. |
+| `Request_Module.cpp` | Implements request initialization, processing-time assignment, and conversion between C++ requests and the C request structure. |
+| `Circular_Queue_Module.cpp` | Implements the C++ CircularQueue wrapper using functions from data_structures.h. |
+| `Load_Balancer_Core_and_Algorithms.cpp` | Implements core load-balancer operations, algorithm selection, waiting-request assignment, and request processing. |
+| `Round_Robin_Algorithm.cpp` | Implements Round Robin server selection. |
+| `Weighted_Round_Robin_Algorithm.cpp` | Implements Weighted Round Robin server selection. |
+| `Least_Connections_Algorithm.cpp` | Implements Least Connections server selection. |
+| `Request_Generation_Module.cpp` | Generates requests, validates the selected algorithm, and assigns requests. |
+| `Server_Display_Module.cpp` | Displays server details and status. |
+| `Server_Failure_Module.cpp` | Handles server failure and returns interrupted requests to the waiting queue when possible. |
+| `Server_Recovery_Module.cpp` | Reactivates failed servers and assigns waiting requests. |
+| `Add_Server_Module.cpp` | Adds new servers with an ID, capacity, and weight. |
+| `Queue_Display_Module.cpp` | Displays active and waiting requests. |
+
+## Technologies and Concepts
+
+- **Language:** C++
+- **Programming Concepts:** Classes, Objects, Inheritance, and Modular Programming
+- **Data Structures:** Vector and Circular Queue
 
 
-Technologies and Concepts
-- Language: C++
-- Programming concepts: Classes, objects, inheritance, and modular programming
-- Data structures: vector and circular queue
-- Other concepts: File separation through header/source files, request processing, and server failure handling
+
+Technologies and Conceptsader/source files, request processing, and server failure handling
 Requirements
 - GCC/MinGW C++ compiler with C++17 support
 - Terminal or command prompt
